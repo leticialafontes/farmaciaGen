@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Categoria } from './Categoria/entities/categoria.entity';
 import { CategoriaModule } from './Categoria/categoria.module';
+import { Produto } from './Produto/entities/produto.entity';
+import { ProdutoModule } from './Produto/produto.module';
+
 
 @Module({
   imports: [
@@ -12,10 +15,11 @@ import { CategoriaModule } from './Categoria/categoria.module';
       username: 'root',
       password:'root',
       database:'db_farmacia',
-      entities:[Categoria],
+      entities:[Categoria, Produto],
       synchronize: true,
     }),
-    CategoriaModule
+    CategoriaModule,
+    ProdutoModule
   ],
   controllers: [],
   providers: [],
